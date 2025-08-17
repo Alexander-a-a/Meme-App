@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+    <link href="../../stylesheets/navbar.css" rel="stylesheet">
+    <link href="../../stylesheets/login.css" rel="stylesheet">
+    <title>Sign in</title>
+</head>
+
+<body>
+    <%- include('./partials/navbar.ejs') %>
+    <%- include('./partials/login') %>
+    <script>
+        localStorage.removeItem("viewedMemes")
+    </script>
+</body>
+
+</html>

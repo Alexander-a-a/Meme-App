@@ -1,6 +1,6 @@
 <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light position-fixed w-100 fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">Meme Central</a>
+        <a class="navbar-brand" href="/">Meme Central <img id="logoImg" src="/images/logo.png"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -8,13 +8,26 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="/memes">Memes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/login">Sign in</a>
+                    <% if (isAuthenticated) { %>
+                        <a class="nav-link" href="#"
+                            onclick="event.preventDefault(); document.getElementById('logoutForm').submit();">
+                            Sign out (<%= user.Username || user.username %>)
+                        </a>
+                        <form id="logoutForm" action="/login/logout" method="post" style="display:none;"></form>
+
+                        <% } else { %>
+                            <a class="nav-link" href="/login">Sign in</a>
+                            <% } %>
+                </li>
+                <li>
+                    <form action="/memes" method="GET" class="searchForm">
+                        
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q">
+                            <button class="btn btn-success my-2 my-sm-0 ms-1" type="submit" id="searchBtn" >Search</button>
+                    </form>
                 </li>
             </ul>
         </div>

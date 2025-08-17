@@ -1,3 +1,38 @@
 section {
-    padding-top: 50px;
+  padding-top: 50px;
+}
+
+#navbar {
+  background-color: #d5e0eb !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#logoImg {
+  height: 100px;
+  width: 150px;
+}
+
+a {
+  color: #212529 !important;
+}
+
+a:hover {
+  color: #505152 !important;
+}
+
+#searchBtn {
+  width: 70px;
+  background-color: #212529 !important;
+  border-color: #212529 !important;
+  border-radius: 4px !important;
+}
+
+#searchBtn:hover {
+  background-color: #444242 !important;
+  border-color: #000 !important;
+}
+
+.searchForm {
+  display: flex;
+  align-items: center;
 }

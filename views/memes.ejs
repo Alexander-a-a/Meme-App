@@ -2,38 +2,25 @@
 <html lang="en">
 
 <head>
-  <title>Portfolio</title>
-  <link rel="stylesheet" href="../../css/bootstrap.min.css" />
-  <link href="../../stylesheets/navbar.css" rel="stylesheet">
+  <title>Memes</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/stylesheets/navbar.css" />
+  <link rel="stylesheet" href="/stylesheets/memesDisplay.css" />
 </head>
 
 <body class="position-relative" data-bs-spy="scroll">
   <%- include('./partials/navbar.ejs') %>
-    <section class="container">
+    <section class="container mt-5 pt-3">
       <table class="table" id="table">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Size</th>
-            <th scope="col">Image</th>
-            <th scope="col">Options</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">
-            </th>
-            <td>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-          </tr>
+        <!-- <thead>
+        </thead> -->
+        
+        <tbody id="tableBody">
         </tbody>
       </table>
     </section>
+    <%- include('./partials/memesTableScript.ejs') %>
     <%- include('./partials/scripts.ejs') %>
-</body>
 
+</body>
 </html>

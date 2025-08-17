@@ -1,0 +1,111 @@
+<table class="table">
+    <tbody id="tableBody"></tbody>
+</table>
+
+<script>
+    const memes = <%- JSON.stringify(memes) %>;
+    const viewedMemeIds = <%- JSON.stringify(viewedMemeIds) %>;
+    const isAuthenticated = <%- JSON.stringify(isAuthenticated) %>;
+
+    localStorage.setItem("viewedMemes", JSON.stringify(viewedMemeIds));
+
+    function buildTable() {
+        const perRow = 4;
+        const tbody = document.getElementById("tableBody");
+        tbody.innerHTML = "";
+
+        let tr = null;
+
+        let localViewed = JSON.parse(localStorage.getItem("viewedMemes") || "[]");
+        const combined = new Set([...viewedMemeIds.map(String), ...localViewed.map(String)]);
+
+
+        memes.forEach((m, i) => {
+            if (i % perRow === 0) {
+                tr = document.createElement("tr")
+                tbody.appendChild(tr);
+            }
+
+            const td = document.createElement("td");
+
+
+            if (combined.has(String(m.id))) {
+                td.classList.add("viewed");
+            }
+
+            const wrapper = document.createElement("div");
+            wrapper.classList.add("meme-card");
+
+            const name = document.createElement("p");
+            name.textContent = m.name || '(untitled)';
+
+            const img = document.createElement("img");
+            img.src = m.url;
+            img.alt = m.name || 'meme';
+            if (m.width && m.height) {
+                img.width = Math.round(m.width * 0.2);
+                img.height = Math.round(m.height * 0.2);
+            }
+
+
+            const size = document.createElement("small");
+
+            const form = document.createElement("form");
+            form.method = "POST";
+            form.action = "/memes/details";
+
+            const hidden = document.createElement("input");
+            hidden.type = "hidden";
+            hidden.name = "id";
+            hidden.value = m.id;
+
+
+            const btn = document.createElement("button");
+            btn.type = "submit";
+            btn.className = "btn btn-success my-2 my-sm-0 ";
+            btn.classList.add("details-btn");
+            btn.textContent = "Details";
+
+            form.addEventListener("submit", () => {
+                const localViewed = JSON.parse(localStorage.getItem("viewedMemes") || "[]");
+                if (!localViewed.includes(m.id)) {
+                    localViewed.push(m.id);
+                    localStorage.setItem("viewedMemes", JSON.stringify(localViewed));
+                }
+                })
+
+
+            // btn.addEventListener("click", () => {
+            //     let localViewed = JSON.parse(localStorage.getItem("viewedMemes") || "[]");
+            //     if (!localViewed.includes(m.id)) {
+            //         localViewed.push(m.id);
+            //         localStorage.setItem("viewedMemes", JSON.stringify(localViewed));
+            //     }
+            //     window.location.href = `/memes/${encodeURIComponent(m.id)}`;
+            // })
+            
+            form.appendChild(hidden);
+            form.appendChild(btn);
+
+
+            wrapper.append(name, img);
+
+            if (isAuthenticated) {
+                wrapper.appendChild(form);
+            }
+
+            td.appendChild(wrapper);
+
+            tr.appendChild(td);
+
+        })
+    }
+
+
+   
+    document.addEventListener("DOMContentLoaded", buildTable);
+
+    window.addEventListener("pageshow", () => {
+        buildTable()
+    });
+</script>

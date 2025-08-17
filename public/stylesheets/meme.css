@@ -1,0 +1,21 @@
+body {
+  padding-top: 180px;
+}
+
+.memeName {
+  text-align: center;
+}
+
+.memeImg {
+  display: block;
+  margin-inline: auto;
+  max-width: 600px; 
+  width: 100%; 
+  height: auto;
+}
+
+.memeList {
+  padding-top: 10px;
+  width: fit-content;
+  margin: 0 auto;
+}

@@ -1,20 +1,48 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/-z6AHlvy)
-﻿![](http://images.restapi.co.za/pvt/Noroff-64.png)
-# Noroff
-# Back-end Development Year 1
-### JavaScript Server - Course Assignment 1 <sup>V2</sup>
+Meme Central — (Node + Express + EJS)
 
-Startup code for Noroff back-end development 1 - JavaScript Server course.
+A simple meme web app built with Express, EJS and Bootstrap.
 
-Instruction for the course assignment is in the LMS (Moodle) system of Noroff.
-[https://lms.noroff.no](https://lms.noroff.no)
 
-![](http://images.restapi.co.za/pvt/ca_important.png)
+# Features
 
-You will not be able to make any submission after the deadline of the course assignment. Make sure to make all your commit **BEFORE** the deadline
+- Meme overview page displaying 20 memes from the API
+- Search function to filter memes by name
+- Meme details page (only accessible to logged.in users)
+- Viewed memes are tracked and highlighted
+- Responsive layout with Bootstrap & Bootstrap Icons
+- Login wiring via Passport Local + express-session (User and password can be found in /data/user.json)
 
-![](http://images.restapi.co.za/pvt/help.png)
+# Tech Stack
 
-If you are unsure of any instructions for the course assignment, contact out to your teacher on **Microsoft Teams**.
+- Node.js, Express, EJS
+- Bootstrap 5, Bootstrap icons, jQuery
+- Passport.js (local strategy) + sessions
 
-**REMEMBER** Your Moodle LMS submission must have your repository link **AND** your Github username in the text file.
+# Getting Started
+
+- Install dependencies
+
+  npm install
+
+- Run the app
+
+  npm start
+
+# App: http://localhost:3000
+
+- Login
+
+ Username: FJ
+ 
+ Password: FJ1
+
+ Username: Josh
+
+ Password: Josh1
+
+ Username: Student
+ 
+ Password: Student1
+        
+
+---
