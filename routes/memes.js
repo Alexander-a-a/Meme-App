@@ -12,11 +12,14 @@ router.get("/", function (req, res, next) {
 
   const viewedMemeIds = req.session.viewedMemeIds || [];
 
+  const noResults = q.length > 0 && memes.length === 0;
+
   res.render("memes", {
     memes,
     q,
     viewedMemeIds,
     isAuthenticated: req.isAuthenticated?.(),
+    noResults
   });
 });
 

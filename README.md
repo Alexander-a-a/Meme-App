@@ -32,17 +32,17 @@ A simple meme web app built with Express, EJS and Bootstrap.
 
 - Login
 
- Username: FJ
+  Username: FJ
  
- Password: FJ1
+  Password: FJ1
 
- Username: Josh
+  Username: Josh
 
- Password: Josh1
+  Password: Josh1
 
- Username: Student
+  Username: Student
  
- Password: Student1
+  Password: Student1
         
 
 ---

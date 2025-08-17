@@ -18,7 +18,6 @@ const memeStore = require('./services/memeStore');
 var indexRouter = require('./routes/index');
 var memesRouter = require('./routes/memes');
 var loginRouter = require('./routes/login');
-var memeDetailRouter = require('./routes/meme');
 
 // routes
 var app = express();

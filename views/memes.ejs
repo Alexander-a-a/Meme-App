@@ -19,6 +19,9 @@
         </tbody>
       </table>
     </section>
+    <% if (noResults) { %>
+      <p class="text-center text-muted">No memes found for "<%= q %>"</p>
+    <% } %>
     <%- include('./partials/memesTableScript.ejs') %>
     <%- include('./partials/scripts.ejs') %>
 
